@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - all msys2 binaries.
 
 
+## [2018.12.07 - 2018-12-07]
+### Added
+- stm8gal version 1.2
+
+### Changed
+- update stm8flash to commit dc824e43 (support ST-Link/v2.1)
+
+
 ## [2017.10.21 - 2017-10-21]
 ### Added
 - bash, cp, rm
