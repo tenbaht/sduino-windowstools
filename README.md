@@ -14,8 +14,8 @@ purpose of this compilation is to save you some work downloading them
 separately.
 
 This used to be a collection of [msys2](https://www.msys2.org/) tools. After
-some changes in the building process and streamlining used scripts it was
-possible to replace them all by using busybox and make.
+some changes in the building process and streamlining the used scripts it
+was possible to replace them all by busybox and make.
 
 
 
@@ -28,33 +28,35 @@ Just copy the two files `busybox.exe` and `make.exe` into a location in your
 
 ## The old MinGW collection
 
-Is still available in the mingw branch of the repository.
+Is still available in the [mingw
+branch](https://github.com/tenbaht/sduino-windowstools/tree/mingw) of this
+repository.
 
 
 
 ## Cross-compiling the tools
 
-*busybox* is straight from the [busybox-w32
-project](https://frippery.org/busybox/), version
+*busybox.exe* is straight from the [busybox-w32](https://frippery.org/busybox/)
+project, version
 [FRP-2358](https://frippery.org/files/busybox/busybox-w32-FRP-2358-g25a1bcec7.exe).
 
-*make* is compiled as a 32 bit binary from the [official
-sources](https://ftp.gnu.org/gnu/make/make-4.2.tar.gz) at the [GNU Make
-project website](https://www.gnu.org/software/make/) using mingw on a Linux
-host system. Here is how to do it on a Mint 19 (Ubuntu 18.04 based) system.
+*make.exe* is compiled as a 32 bit binary from the [official
+sources](https://ftp.gnu.org/gnu/make/make-4.2.tar.gz) at the [GNU
+Make](https://www.gnu.org/software/make/) site using mingw on a Linux host
+system. Here is how to do it on a Mint 19 (Ubuntu 18.04 based) system.
 
 Install the required packages:
 
 	apt install mingw-w64 mingw-w64-tools
 
-Download source from [GNU ftp server](https://ftp.gnu.org/gnu/make/),
-unpack, enter that directory.
+Download the source code from the [GNU ftp
+server](https://ftp.gnu.org/gnu/make/), unpack, enter that directory.
 
 	./configure --host=i686-w64-mingw32
 	make INCLUDES=-I$(pwd)/glob
 	strip make.exe
 
-That's it. Ready to use.
+That's it. Ready to go.
 
 
 
@@ -66,6 +68,9 @@ about the compilation itself, it is the way Makefiles are written and
 executed. The whole concept relies on forking subprocesses for all the shell
 calls. Unfortunately, there is nothing like a fork in Windows and to work
 around that is painfully slow.
+
+Using busybox is already a huge improvement over using msys2 as now all tools
+are part of the busybox binary and can be started much easier.
 
 It might be possible to use the new Linux-Subsystem of Windows 10 instead.
 (Feedback highly appreciated)
